@@ -28,13 +28,13 @@ head(sampleData$DF)
 ```
 
 ```
-##         PC1         PC2 taxon  group
-## A -2.060427 -0.05738028     A group1
-## B -6.042691  1.95309070     B group2
-## C -5.498482  1.97479700     C group1
-## D -6.020761  2.25013877     D group2
-## E -3.637639 -0.01376266     E group1
-## F -1.705474  2.83344660     F group2
+##           PC1         PC2 taxon  group
+## A -2.97831839  2.67580286     A group1
+## B -0.18117859 -1.14645602     B group2
+## C -0.69258460 -2.32020109     C group1
+## D -0.40664199  0.09467764     D group2
+## E -0.01512143  1.23078740     E group1
+## F  0.93301701  0.65321188     F group2
 ```
 
 ## check out the documentation for the function

@@ -59,9 +59,9 @@ ggphylomorpho <- function(tree,
 
   theplot <-
     ggplot() +
-    geom_text(data=pointsForPlot, aes(x=x, y=y, label=label)) +
     geom_segment(data=edgecoords,aes(x=x.x,xend=x.y, y=y.x, yend=y.y)) +
     geom_point(data=pointsForPlot, aes(x=x, y=y, color=color), size=5) +
+    geom_text(data=pointsForPlot, aes(x=x, y=y, label=label)) +
     labs(title=title, x=xlab, y=ylab) +
     theme_bw(20) +
     theme(legend.position='bottom')
