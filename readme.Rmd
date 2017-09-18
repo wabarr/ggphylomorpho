@@ -1,0 +1,39 @@
+---
+title: "readme"
+author: "Andrew Barr"
+date: "9/18/2017"
+output: 
+  html_document:
+    keep_md: true
+---
+
+## install and load package
+
+Note: this assumes you already installed the `devtools` package.  If you haven't you should do so using the normal R package management tools. 
+
+```{r setup, message=FALSE, warning=FALSE}
+#devtools::install_github("wabarr/ggphylomorpho")
+library(ggphylomorpho)
+```
+
+## make example data
+
+```{r message=FALSE, warning=FALSE}
+sampleData <- makesampledata()
+
+plot(sampleData$tree)
+
+head(sampleData$DF)
+```
+
+## check out the documentation for the function
+```{r}
+?ggphylomorpho
+```
+
+## make a phylomorphospace
+
+```{r warning=FALSE, message=FALSE}
+ggphylomorpho(tree=sampleData$tree, tipinfo=sampleData$DF)
+```
+
