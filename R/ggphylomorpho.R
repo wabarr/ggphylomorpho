@@ -9,6 +9,7 @@
 #' @param title the text string to use as the title of the phylomorphospace plot
 #' @param xlab the text label for the x axis
 #' @param ylab the text label for the y axis
+#' @param repel boolean indicating whether or not to use the \code{ggrepel} package to prevent overplotting of labels
 #' @return the ggplot object representing the phylomorphospace
 
 
@@ -20,11 +21,13 @@ ggphylomorpho <- function(tree,
                           labelvar=taxon,
                           title="Phylomorphospace",
                           xlab="PC1",
-                          ylab="PC2")
+                          ylab="PC2",
+                          repel=TRUE)
   {
 
   require(ggplot2)
   require(phytools)
+  require(ggrepel)
 
   ## create matrix for use in phytools::fastAnc()
   mat <- cbind(eval(substitute(xvar), tipinfo),eval(substitute(yvar), tipinfo))
@@ -61,9 +64,13 @@ ggphylomorpho <- function(tree,
     ggplot() +
     geom_segment(data=edgecoords,aes(x=x.x,xend=x.y, y=y.x, yend=y.y)) +
     geom_point(data=pointsForPlot, aes(x=x, y=y, color=color), size=5) +
-    geom_text(data=pointsForPlot, aes(x=x, y=y, label=label)) +
     labs(title=title, x=xlab, y=ylab) +
     theme_bw(20) +
     theme(legend.position='bottom')
+  if(repel){
+    theplot <- theplot + geom_text_repel(data=pointsForPlot, aes(x=x, y=y, label=label))
+  } else{
+    theplot <- theplot + geom_text(data=pointsForPlot, aes(x=x, y=y, label=label))
+  }
   return(theplot)
 }

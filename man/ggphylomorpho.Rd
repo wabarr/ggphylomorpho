@@ -2,11 +2,11 @@
 % Please edit documentation in R/ggphylomorpho.R
 \name{ggphylomorpho}
 \alias{ggphylomorpho}
-\title{Make the phylomorphospace}
+\title{Make a phylomorphospace plot}
 \usage{
 ggphylomorpho(tree, tipinfo, xvar = PC1, yvar = PC2, factorvar = group,
   labelvar = taxon, title = "Phylomorphospace", xlab = "PC1",
-  ylab = "PC2")
+  ylab = "PC2", repel = TRUE)
 }
 \arguments{
 \item{tree}{object of class \code{phylo}}
@@ -26,10 +26,12 @@ ggphylomorpho(tree, tipinfo, xvar = PC1, yvar = PC2, factorvar = group,
 \item{xlab}{the text label for the x axis}
 
 \item{ylab}{the text label for the y axis}
+
+\item{repel}{boolean indicating whether or not to use the \code{ggrepel} package to prevent overplotting of labels}
 }
 \value{
 the ggplot object representing the phylomorphospace
 }
 \description{
-Make the phylomorphospace
+Make a phylomorphospace plot
 }
