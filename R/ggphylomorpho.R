@@ -11,6 +11,7 @@
 #' @param ylab the text label for the y axis
 #' @param repel boolean indicating whether or not to use the \code{ggrepel} package to prevent overplotting of labels
 #' @param edge.width size parameter for edges drawn on phylomorphospace. Default is 1
+#' @param fontface font face for labels. Default is "italic".
 #' @return the ggplot object representing the phylomorphospace
 
 
@@ -70,7 +71,7 @@ ggphylomorpho <- function(tree,
     theme_bw(20) +
     theme(legend.position='bottom')
   if(repel){
-    theplot <- theplot + geom_text_repel(data=pointsForPlot, aes(x=x, y=y, label=label), segment.alpha=0.5)
+    theplot <- theplot + geom_text_repel(data=pointsForPlot, aes(x=x, y=y, label=label), segment.alpha=0.5, fontface=fontface)
   } else{
     theplot <- theplot + geom_text(data=pointsForPlot, aes(x=x, y=y, label=label))
   }

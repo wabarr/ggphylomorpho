@@ -30,6 +30,8 @@ ggphylomorpho(tree, tipinfo, xvar = PC1, yvar = PC2, factorvar = group,
 \item{repel}{boolean indicating whether or not to use the \code{ggrepel} package to prevent overplotting of labels}
 
 \item{edge.width}{size parameter for edges drawn on phylomorphospace. Default is 1}
+
+\item{fontface}{font face for labels. Default is "italic".}
 }
 \value{
 the ggplot object representing the phylomorphospace
