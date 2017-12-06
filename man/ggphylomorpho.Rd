@@ -6,7 +6,7 @@
 \usage{
 ggphylomorpho(tree, tipinfo, xvar = PC1, yvar = PC2, factorvar = group,
   labelvar = taxon, title = "Phylomorphospace", xlab = "PC1",
-  ylab = "PC2", repel = TRUE)
+  ylab = "PC2", repel = TRUE, edge.width = 1)
 }
 \arguments{
 \item{tree}{object of class \code{phylo}}
@@ -28,6 +28,8 @@ ggphylomorpho(tree, tipinfo, xvar = PC1, yvar = PC2, factorvar = group,
 \item{ylab}{the text label for the y axis}
 
 \item{repel}{boolean indicating whether or not to use the \code{ggrepel} package to prevent overplotting of labels}
+
+\item{edge.width}{size parameter for edges drawn on phylomorphospace. Default is 1}
 }
 \value{
 the ggplot object representing the phylomorphospace

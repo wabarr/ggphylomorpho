@@ -10,6 +10,7 @@
 #' @param xlab the text label for the x axis
 #' @param ylab the text label for the y axis
 #' @param repel boolean indicating whether or not to use the \code{ggrepel} package to prevent overplotting of labels
+#' @param edge.width size parameter for edges drawn on phylomorphospace. Default is 1
 #' @return the ggplot object representing the phylomorphospace
 
 
@@ -22,7 +23,8 @@ ggphylomorpho <- function(tree,
                           title="Phylomorphospace",
                           xlab="PC1",
                           ylab="PC2",
-                          repel=TRUE)
+                          repel=TRUE,
+                          edge.width=1)
   {
 
   require(ggplot2)
@@ -62,13 +64,13 @@ ggphylomorpho <- function(tree,
 
   theplot <-
     ggplot() +
-    geom_segment(data=edgecoords,aes(x=x.x,xend=x.y, y=y.x, yend=y.y)) +
+    geom_segment(data=edgecoords,aes(x=x.x,xend=x.y, y=y.x, yend=y.y), size=edge.width) +
     geom_point(data=pointsForPlot, aes(x=x, y=y, color=color), size=5) +
     labs(title=title, x=xlab, y=ylab) +
     theme_bw(20) +
     theme(legend.position='bottom')
   if(repel){
-    theplot <- theplot + geom_text_repel(data=pointsForPlot, aes(x=x, y=y, label=label))
+    theplot <- theplot + geom_text_repel(data=pointsForPlot, aes(x=x, y=y, label=label), segment.alpha=0.5)
   } else{
     theplot <- theplot + geom_text(data=pointsForPlot, aes(x=x, y=y, label=label))
   }
