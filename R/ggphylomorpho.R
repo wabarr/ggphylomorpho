@@ -12,6 +12,7 @@
 #' @param repel boolean indicating whether or not to use the \code{ggrepel} package to prevent overplotting of labels
 #' @param edge.width size parameter for edges drawn on phylomorphospace. Default is 1
 #' @param fontface font face for labels. Default is "italic".
+#' @param tree.alpha alpha parameter for the main tree. default is 0.7
 #' @return the ggplot object representing the phylomorphospace
 
 
@@ -26,7 +27,8 @@ ggphylomorpho <- function(tree,
                           ylab="PC2",
                           repel=TRUE,
                           edge.width=1,
-                          fontface="italic")
+                          fontface="italic",
+                          tree.alpha = 0.7)
   {
 
   require(ggplot2)
@@ -66,7 +68,7 @@ ggphylomorpho <- function(tree,
 
   theplot <-
     ggplot() +
-    geom_segment(data=edgecoords,aes(x=x.x,xend=x.y, y=y.x, yend=y.y), size=edge.width) +
+    geom_segment(data=edgecoords,aes(x=x.x,xend=x.y, y=y.x, yend=y.y), size=edge.width, alpha=tree.alpha) +
     geom_point(data=pointsForPlot, aes(x=x, y=y, color=color), size=5) +
     labs(title=title, x=xlab, y=ylab) +
     theme_bw(20) +

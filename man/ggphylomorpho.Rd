@@ -6,7 +6,8 @@
 \usage{
 ggphylomorpho(tree, tipinfo, xvar = PC1, yvar = PC2, factorvar = group,
   labelvar = taxon, title = "Phylomorphospace", xlab = "PC1",
-  ylab = "PC2", repel = TRUE, edge.width = 1, fontface = "italic")
+  ylab = "PC2", repel = TRUE, edge.width = 1, fontface = "italic",
+  tree.alpha = 0.7)
 }
 \arguments{
 \item{tree}{object of class \code{phylo}}
@@ -32,6 +33,8 @@ ggphylomorpho(tree, tipinfo, xvar = PC1, yvar = PC2, factorvar = group,
 \item{edge.width}{size parameter for edges drawn on phylomorphospace. Default is 1}
 
 \item{fontface}{font face for labels. Default is "italic".}
+
+\item{tree.alpha}{alpha parameter for the main tree. default is 0.7}
 }
 \value{
 the ggplot object representing the phylomorphospace
