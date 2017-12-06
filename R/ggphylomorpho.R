@@ -74,7 +74,7 @@ ggphylomorpho <- function(tree,
   if(repel){
     theplot <- theplot + geom_text_repel(data=pointsForPlot, aes(x=x, y=y, label=label), segment.alpha=0.5, fontface=fontface)
   } else{
-    theplot <- theplot + geom_text(data=pointsForPlot, aes(x=x, y=y, label=label), segment.alpha=0.5, fontface=fontface)
+    theplot <- theplot + geom_text(data=pointsForPlot, aes(x=x, y=y, label=label), fontface=fontface)
   }
   return(theplot)
 }
