@@ -6,7 +6,7 @@
 \usage{
 ggphylomorpho(tree, tipinfo, xvar = PC1, yvar = PC2, factorvar = group,
   labelvar = taxon, title = "Phylomorphospace", xlab = "PC1",
-  ylab = "PC2", repel = TRUE, edge.width = 1)
+  ylab = "PC2", repel = TRUE, edge.width = 1, fontface = "italic")
 }
 \arguments{
 \item{tree}{object of class \code{phylo}}
